@@ -14,7 +14,7 @@ And see the repo: https://github.com/YusufMbk/team-profile-gen
 
 Here is a screenshot example also:
 
-![screenshot of the deployed page](./screenshot.png)
+![screenshot of the deployed page](team-profile-gen/screenshot.png)
 
 ## License
 
