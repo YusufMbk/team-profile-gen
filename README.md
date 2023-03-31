@@ -8,11 +8,9 @@ The goal of this project was to create a Node.js command-line application which 
 
 Since this is a project built with Node.js, you need to install the dependencies. You can do this by running **npm install**
 
-Use the deployed link: https://yusufmbk.github.io/team-profile-gen
+See the repo here: https://github.com/YusufMbk/team-profile-gen
 
-And see the repo: https://github.com/YusufMbk/team-profile-gen
-
-Here is a screenshot example also:
+Here is a screenshot example of a HTML file generated also:
 
 ![screenshot of the deployed page](https://raw.githubusercontent.com/YusufMbk/team-profile-gen/main/screenshot.png)
 
