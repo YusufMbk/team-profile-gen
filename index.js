@@ -11,7 +11,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./src/page-template.js");
 
 
-// TODO: Write Code to gather information about the development team members, and render the HTML file.
+// TODO: Write Code to gather information about the development team members, and render the HTML file. COMPLETED
 
 const team = []
 const idArray = []
@@ -30,6 +30,8 @@ const menu = () => {
 
 
     function createTeam(){
+
+        // asks the user what role they would like to add to the team. if none is selected, it it then builds the website.
         inquirer.prompt([
             {
                 type:"list",
@@ -53,6 +55,8 @@ const menu = () => {
     }
 
     function addIntern(){
+
+        // prompts the user to enter the names of the intern to be added to the team.
         inquirer.prompt([
             {
                 type: "input",
@@ -84,6 +88,8 @@ const menu = () => {
     }
 
     function addEngineer(){
+
+        // prompts the user to enter the details of the engineer to be added to the team website
         inquirer.prompt([
             {
                 type: "input",
@@ -115,6 +121,8 @@ const menu = () => {
 
 
 
+
+    // managers prompt to enter their details.
     function createManager(){
         console.log("Build your team!");
         inquirer.prompt([
