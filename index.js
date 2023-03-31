@@ -16,12 +16,97 @@ const render = require("./src/page-template.js");
 const team = []
 const idArray = []
 
-function buildTeam(){
 
-}
 
 
 const menu = () => {
+
+
+    function createTeam(){
+        inquirer.prompt([
+            {
+                type:"list",
+                name:"members",
+                message:"Which roles do you want to add to your team Mr/Mrs Manager?",
+                choices: [
+                    "Engineer",
+                    "Intern",
+                    "I would not like to add any more roles",
+                ]
+            }
+        ]).then(userChoice=> {
+            if(userChoice.members === "Engineer"){
+                addEngineer();
+            } else if (userChoice.members === "Intern"){
+                addIntern();
+            } else {
+                buildTeam();
+            }
+        })
+    }
+
+    function addIntern(){
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "internName",
+                message: "What is your name Mr/Mrs Intern?",
+            },
+            {
+                type: "input",
+                name: "internId",
+                message: "What is your ID Mr/Mrs Intern?",
+            },
+            {
+                type: "input",
+                name: "internEmail",
+                message:"What is your email Mr/Mrs intern?",
+            },
+            {
+                type: "input",
+                name: "internSchool",
+                message: "What is your School Mr/Mrs intern?",
+            },
+        ]).then(answers=>{
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internGithub);
+            team.push(intern);
+            idArray.push(answers.internId);
+            createTeam();
+        })
+    
+    }
+
+    function addEngineer(){
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "engineerName",
+                message: "What is your name Mr/Mrs Engineer?",
+            },
+            {
+                type: "input",
+                name: "engineerId",
+                message: "What is your ID Mr/Mrs Engineer?",
+            },
+            {
+                type: "input",
+                name: "engineerEmail",
+                message:"What is your email Mr/Mrs Engineer?",
+            },
+            {
+                type: "input",
+                name: "engineerGithub",
+                message: "What is your GitHub Mr/Mrs Engineer?",
+            },
+        ]).then(answers=>{
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            team.push(engineer);
+            idArray.push(answers.engineerId);
+            createTeam();
+        })
+    }
+
+
 
     function createManager(){
         console.log("Build your team!");
