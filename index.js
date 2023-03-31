@@ -21,6 +21,13 @@ const idArray = []
 
 const menu = () => {
 
+    function buildTeam(){
+        if(!fs.existsSync(OUTPUT_DIR)){
+            fs.mkdirSync(OUTPUT_DIR)
+        }
+        fs.writeFileSync(outputPath, render(team), "utf-8");
+    }
+
 
     function createTeam(){
         inquirer.prompt([
@@ -68,7 +75,7 @@ const menu = () => {
                 message: "What is your School Mr/Mrs intern?",
             },
         ]).then(answers=>{
-            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internGithub);
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
             team.push(intern);
             idArray.push(answers.internId);
             createTeam();
